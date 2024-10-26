@@ -16,7 +16,7 @@ class _KomikPageState extends State<KomikPage> {
           appBar: AppBar(
               foregroundColor: Colors.white,
               title: const Text(
-                "Komik",
+                "KOMIK",
                 style: TextStyle(
                     fontFamily: 'Avenir',
                     fontWeight: FontWeight.w800,
