@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:penyuluhan_narkoba_app/kuis/detail_kuis1_page.dart';
+import 'package:penyuluhan_narkoba_app/model/kuis_data.dart';
 
 class KuisPage extends StatefulWidget {
   const KuisPage({Key? key}) : super(key: key);
@@ -11,12 +13,16 @@ class KuisPage extends StatefulWidget {
 class _KuisPageState extends State<KuisPage> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
           appBar: AppBar(
               title: const Text(
-                "Kuis Page",
-                style: TextStyle(fontFamily: 'Avenir', fontWeight: FontWeight.w800, color: Colors.white),
+                "Kuis",
+                style: TextStyle(
+                    fontFamily: 'Avenir',
+                    fontWeight: FontWeight.w800,
+                    color: Colors.white),
               ),
               centerTitle: true,
               backgroundColor: Colors.blue),
@@ -25,13 +31,17 @@ class _KuisPageState extends State<KuisPage> {
             child: Expanded(
                 child: StaggeredGridView.countBuilder(
               crossAxisCount: 1,
-              itemCount: 5,
+              itemCount: kuisDataList.length,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context) => BerandaPage()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DetailKuis1Page(
+                              materi: kuisDataList[index].materi,
+                              questionList: kuisDataList[index].questionList,
+                            )));
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width,
@@ -42,10 +52,13 @@ class _KuisPageState extends State<KuisPage> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      "Kuis ${index + 1}",
+                      "KUIS ${index + 1}",
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                          fontFamily: 'SF-Pro-Rounded', color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700),
+                          fontFamily: 'SF-Pro-Rounded',
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 );
