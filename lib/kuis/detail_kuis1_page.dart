@@ -19,29 +19,25 @@ class _DetailKuis1Pagestate extends State<DetailKuis1Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+            foregroundColor: Colors.white,
             title: Text(
               widget.materi,
-              style: const TextStyle(
-                  fontFamily: 'Avenir',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.white),
+              style:
+                  const TextStyle(fontFamily: 'Avenir', fontSize: 24, fontWeight: FontWeight.w800, color: Colors.white),
             ),
             centerTitle: true,
-            backgroundColor: Colors.blue),
+            backgroundColor: Colors.brown),
         body: SafeArea(
             child: SingleChildScrollView(
           child: Padding(
-            padding:
-                const EdgeInsets.only(bottom: 16, right: 16, top: 10, left: 16),
+            padding: const EdgeInsets.only(bottom: 16, right: 16, top: 10, left: 16),
             child: ListView.builder(
               shrinkWrap: true,
               itemBuilder: (context, index1) {
                 return Container(
                   margin: const EdgeInsets.all(10.0),
                   padding: const EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blueAccent)),
+                  decoration: BoxDecoration(border: Border.all(color: Colors.brown)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -50,10 +46,7 @@ class _DetailKuis1Pagestate extends State<DetailKuis1Page> {
                         widget.questionList[index1].questionTitle,
                         textAlign: TextAlign.left,
                         style: const TextStyle(
-                            fontFamily: 'Avenir',
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87),
+                            fontFamily: 'Avenir', fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
                       ),
                       SizedBox(
                         height: 150,
@@ -66,8 +59,7 @@ class _DetailKuis1Pagestate extends State<DetailKuis1Page> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  ClipRRect(
-                                      borderRadius: BorderRadius.circular(15)),
+                                  ClipRRect(borderRadius: BorderRadius.circular(15)),
                                   Text(
                                     widget.questionList[index1].answer[index2],
                                     textAlign: TextAlign.left,

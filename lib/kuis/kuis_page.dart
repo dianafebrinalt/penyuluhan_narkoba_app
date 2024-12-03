@@ -13,19 +13,16 @@ class KuisPage extends StatefulWidget {
 class _KuisPageState extends State<KuisPage> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
+    return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
           appBar: AppBar(
+              foregroundColor: Colors.white,
               title: const Text(
                 "Kuis",
-                style: TextStyle(
-                    fontFamily: 'Avenir',
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white),
+                style: TextStyle(fontFamily: 'Avenir', fontWeight: FontWeight.w800, color: Colors.white),
               ),
               centerTitle: true,
-              backgroundColor: Colors.blue),
+              backgroundColor: Colors.brown),
           body: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Expanded(
@@ -49,16 +46,13 @@ class _KuisPageState extends State<KuisPage> {
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.brown),
                       color: Colors.brown,
-                      borderRadius: BorderRadius.circular(8),
+                      // borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
                       "KUIS ${index + 1}",
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                          fontFamily: 'SF-Pro-Rounded',
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                          fontFamily: 'SF-Pro-Rounded', color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                 );
