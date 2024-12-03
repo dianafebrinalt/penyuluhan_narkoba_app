@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:penyuluhan_narkoba_app/komik/komik_page.dart';
 import 'package:penyuluhan_narkoba_app/kuis/kuis_page.dart';
 import 'package:penyuluhan_narkoba_app/materi/materi_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BerandaPage extends StatefulWidget {
   const BerandaPage({Key? key}) : super(key: key);
@@ -127,6 +128,30 @@ class _BerandaPageState extends State<BerandaPage> {
                         ),
                         child: const Text(
                           "Petunjuk",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'Avenir', color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    GestureDetector(
+                      onTap: () async {
+                        final Uri url = Uri.parse('https://wa.me/+6282163098615/?text=""');
+                        if (!await launchUrl(url)) {
+                          throw Exception('Could not launch $url');
+                        }
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        padding: const EdgeInsets.all(25),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.green.shade900),
+                          color: Colors.green.shade900,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Text(
+                          "Hubungi Kami",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontFamily: 'Avenir', color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
