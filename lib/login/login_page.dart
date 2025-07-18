@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:penyuluhan_narkoba_app/beranda/beranda_page.dart';
+import 'package:penyuluhan_narkoba_app/util/custom_alert_dialog.dart';
 import 'package:penyuluhan_narkoba_app/util/text_input_view.dart';
 
 class LoginPage extends StatefulWidget {
@@ -94,7 +95,11 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(height: 20),
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => BerandaPage()));
+                            if (_passwordController.text == '123456' && _emailController.text == 'admin') {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BerandaPage()));
+                            } else {
+                              CustomAlertDialog.alert(context, "Failed", "Email and Password are not valid.");
+                            }
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width / 1.5,
